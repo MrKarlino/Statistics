@@ -6,51 +6,57 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StatsServiceTest {
 
-    @org.junit.jupiter.api.Test
-    void getSalesSum() {
+    @Test
+    void testSalesSum() {
         StatsService service = new StatsService();
+        int[] salesArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 180;
-        int actual = service.GetSalesSum();
+        int actual = service.getSalesSum(salesArray);
         assertEquals(expected, actual);
     }
 
     @Test
-    void getSalesAverage() {
+    void testSalesAverage() {
         StatsService service = new StatsService();
+        int[] salesArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 15;
-        int actual = service.GetSalesAverage();
+        int actual = service.getSalesAverage(salesArray);
         assertEquals(expected, actual);
     }
 
     @Test
-    void getMaxSaleMonth() {
+    void testMaxSaleMonth() {
         StatsService service = new StatsService();
+        int[] salesArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 7;
-        int actual = service.GetMaxSaleMonth();
+        int actual = service.getMaxSaleMonth(salesArray);
         assertEquals(expected, actual);
     }
 
     @Test
-    void getMinSaleMonth() {
+    void testMinSaleMonth() {
         StatsService service = new StatsService();
+        int[] salesArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 8;
-        int actual = service.GetMinSaleMonth();
+        int actual = service.getMinSaleMonth(salesArray);
         assertEquals(expected, actual);
     }
 
     @Test
-    void getUndersaleMonthCount() {
+    void testUndersaleMonthCount() {
         StatsService service = new StatsService();
+        int[] salesArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 5;
-        int actual = service.GetUndersaleMonthCount();
+        int actual = service.getUndersaleMonthCount(salesArray);
         assertEquals(expected, actual);
     }
 
     @Test
-    void getOversaleMonthCount() {
+    void testOversaleMonthCount() {
         StatsService service = new StatsService();
+        int[] salesArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 5;
-        int actual = service.GetOversaleMonthCount();
+        int actual = service.getOversaleMonthCount(salesArray);
         assertEquals(expected, actual);
     }
 }

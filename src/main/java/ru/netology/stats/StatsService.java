@@ -1,9 +1,7 @@
 package ru.netology.stats;
 
 public class StatsService {
-    int[] salesArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-
-    int GetSalesSum() {
+    int getSalesSum(int[] salesArray) {
         int sum = 0;
         for (int sale : salesArray) {
             sum += sale;
@@ -11,42 +9,40 @@ public class StatsService {
         return sum;
     }
 
-    int GetSalesAverage() {
+    int getSalesAverage(int[] salesArray) {
         if (salesArray.length == 0){
             return 0;
         }
-        int sum = GetSalesSum();
+        int sum = getSalesSum(salesArray);
         return sum / salesArray.length;
     }
 
-    int GetMaxSaleMonth() {
+    int getMaxSaleMonth(int[] salesArray) {
         int result = 0;
         int lastValue = 0;
         for (int i = 0; i < salesArray.length; i++) {
-            int value = salesArray[i];
-            if (value >= lastValue) {
-                lastValue = value;
+            if (salesArray[i] >= lastValue) {
+                lastValue = salesArray[i];
                 result = i;
             }
         }
         return result;
     }
 
-    int GetMinSaleMonth() {
+    int getMinSaleMonth(int[] salesArray) {
         int result = 0;
-        int lastValue = GetMaxSaleValue();
+        int lastValue = getMaxSaleValue(salesArray);
         for (int i = 0; i < salesArray.length; i++) {
-            int value = salesArray[i];
-            if (value <= lastValue) {
-                lastValue = value;
+            if (salesArray[i] <= lastValue) {
+                lastValue = salesArray[i];
                 result = i;
             }
         }
         return result;
     }
 
-    int GetUndersaleMonthCount() {
-        int average = GetSalesAverage();
+    int getUndersaleMonthCount(int[] salesArray) {
+        int average = getSalesAverage(salesArray);
         int result = 0;
         for(int sale : salesArray) {
             if (sale < average) {
@@ -56,8 +52,8 @@ public class StatsService {
         return result;
     }
 
-    int GetOversaleMonthCount() {
-        int average = GetSalesAverage();
+    int getOversaleMonthCount(int[] salesArray) {
+        int average = getSalesAverage(salesArray);
         int result = 0;
         for(int sale : salesArray) {
             if (sale > average) {
@@ -67,7 +63,7 @@ public class StatsService {
         return result;
     }
 
-    private int GetMaxSaleValue() {
+    private int getMaxSaleValue(int[] salesArray) {
         int result = 0;
         for(int sale : salesArray) {
             if (sale > result) {
